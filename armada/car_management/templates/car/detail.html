@@ -1,0 +1,20 @@
+{% extends 'layout/header.html' %}
+
+{% block "content" %}
+    <button><a href="{% url 'carindex' %}">Back</a></button><br>
+        <p>Legal Number : {{ car.legal_number }}</p><br>
+                <img style="width:100px;" src="{{ car.image_vehicle_number.url }}"><br>
+        <p>Police Number : {{ car.police_number}}</p>
+        <p>Release Year : {{ car.release_year}}</p>
+        <p>Color : {{ car.color}}</p>
+        <p>Series : {{ car.series}}</p>
+        <p>Total Distance : {{ car.total_distance}}</p>
+        <p>Price : {{ car.price}}</p>
+        <p>Car Type : {{ car.car_type}}</p>
+        <p>Brand : {{ car.brand}}</p>
+        <img style="width:100px;"  src="{{ car.car_image.url }}" >
+        <p>created at : {{ car.created_at}}</p>
+        <p>updated at : : {{ car.updated_at}}</p>
+
+{% endblock %}
+

@@ -1,0 +1,32 @@
+{% extends "layout/header.html" %}
+
+    {% block "content" %}
+
+    <a href="{% url 'positionadd' %}">Add Data</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Position</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for data in position %}
+
+                <tr>
+                    <td>{{ data.code }}</td>
+                    <td>{{ data.position }}</td>
+                    <td>{{ data.created_at }}</td>
+                    <td>{{ data.updated_at }}</td>
+                    <td>
+                        <a href="{% url 'positionedit' data.id %}">Edit</a>
+                        <a href="{% url 'positiondetail' data.id %}">Detail</a>
+                        <a href="{% url 'positiondelete' data.id %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    {% endblock %}

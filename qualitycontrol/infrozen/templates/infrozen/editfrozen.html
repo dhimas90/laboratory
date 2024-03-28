@@ -1,0 +1,26 @@
+{% extends "infrozen/layouts/header_sidebar.html" %}
+{% block "content"  %}
+
+            <!-- content -->
+            <div class="relative overflow-x-auto px-5 py-5">
+                <button class="mb-4 bg-green-400 text-black font-bold py-2 px-4 rounded opacity-50 hover:bg-green-700 hover:text-white"><a href="">Back</a></button>
+                <form action="" method='POST'>
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="btn btn-primary btn-sm" value=""> Save</button>
+                </form>
+                
+            </div>
+
+        </div>    
+
+{% endblock %}
+        <!-- footer -->
+
+        
+    </div>
+    <script>
+     
+    </script>
+</body>
+</html>

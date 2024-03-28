@@ -1,0 +1,31 @@
+{% extends 'layout/header.html' %}
+
+{% block "content" %}
+    <a href="{% url 'brandadd' %}">Insert Data</a>
+    <br>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>created at</th>
+                    <th>updated at</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    {% for brand in data %}
+                <tr>
+                    <td>{{ brand.brand }}</td>
+                    <td>{{ brand.created_at }}</td>
+                    <td>{{ brand.updated_at }}</td>
+                    <td>
+                        <a href="{% url 'brandedit' brand.id %}">Edit</a>
+                        <a href="{% url 'branddetail' brand.id %}">Detail</a>
+                        <a href="{% url 'branddelete' brand.id %}">Delete</a>
+                    </td>
+                </tr>
+    {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

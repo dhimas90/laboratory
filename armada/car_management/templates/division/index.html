@@ -1,0 +1,27 @@
+{% extends "layout/header.html" %}
+
+    {% block "content" %}
+        
+    <a href="{% url 'divisionadd' %}">Add Data</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Division</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    {% for data in division %}
+                <tr>
+                    <td>{{ data.division }}</td>
+                    <td>
+                        <a href="{% url 'divisionedit' data.id %}">Edit</a>
+                        <a href="{% url 'divisiondetail' data.id %}">Detail</a>
+                        <a href="{% url 'divisiondelete' data.id %}">Delete</a>
+                    </td>
+                </tr>
+    {% endfor %}
+            </tbody>
+        </table>
+
+    {% endblock %}

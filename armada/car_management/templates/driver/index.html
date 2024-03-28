@@ -1,0 +1,48 @@
+{% extends "layout/header.html" %}
+
+    {% block "content" %}
+
+    {% load static %}
+
+    <a class="btn btn-success" href="{% url 'driveradd' %}">Add Data</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Driving Lisence Number</th>
+                    <th>Image Driving License</th>
+                    <th>Birth</th>
+                    <th>Identity Number</th>
+                    <th>Nationality Card</th>
+                    <th>Created at</th>
+                    <th>Updated at</th>
+                    <th>Gender</th>
+                </tr>
+            </thead>
+            <tbody>
+    {% for msg in message %}
+        <p>{{msg}}</p>
+    {% endfor %}
+    {% for data in driver %}
+
+                <tr>
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.driving_lisence_number }}</td>
+                    <td><img style="width:100px" src="{{MEDIA_URL}}{{ data.image_driving_lisence }}"></td>
+                    <td>{{ data.birth }}</td>
+                    <td>{{ data.identity_number }}</td>
+                    <td><img style="width:100px" src="{{MEDIA_URL}}{{ data.image_identity_number }}"></td>
+                    <td>{{ data.created_at }}</td>
+                    <td>{{ data.updated_at }}</td>
+                    <td>{{ data.gender }}</td>
+                    <td>
+                        <a href="{% url 'driveredit' data.id %}">Edit</a>
+                        <a href="{% url 'driverdetail' data.id %}">Detail</a>
+                        <a href="{% url 'driverdelete' data.id %}">Delete</a>
+                    </td>
+                </tr>
+    {% endfor %}
+            </tbody>
+        </table>
+
+    {% endblock %}

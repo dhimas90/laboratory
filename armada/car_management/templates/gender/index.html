@@ -1,0 +1,31 @@
+{% extends "layout/header.html" %}
+
+    {% block "content" %}
+
+    <a href="{% url 'positionadd' %}">Add Data</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Gender</th>
+                    <th>Created at</th>
+                    <th>Updates at</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for data in gender %}
+
+                <tr>
+                    <td>{{ data.gender }}</td>
+                    <td>{{ data.created_at }}</td>
+                    <td>{{ data.updated_at }}</td>
+                    <td>
+                        <a href="{% url 'genderedit' data.id %}">Edit</a>
+                        <a href="{% url 'genderdetail' data.id %}">Detail</a>
+                        <a href="{% url 'genderdelete' data.id %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    {% endblock %}

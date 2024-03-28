@@ -1,0 +1,49 @@
+{% extends 'layout/header.html' %}
+
+{% block "content" %}
+    <a class="btn btn-success btn-sm" href="{% url 'maintenanceadd' %}">Insert Data</a>
+    <br>
+
+        <table class="table-sm p-2 w-100 mt-2 border rounded">
+            <caption>Car Tables</caption>
+            <thead class="p-3">
+                <tr>
+                    <th scope="col">Letter Number</th>
+                    <th scope="col">Date of Maintenance</th>
+                    <th scope="col">Image Receipt</th>
+                    <th scope="col">Total Amount</th>
+                    <th scope="col">description</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody class="p-3">
+                {% for maintenance in page.object_list %}
+                <tr>
+                    <td>{{ maintenace.letter_number }}</td>
+                    <td>{{ maintenace.date_of_maintenance }}</td>
+                    <td scope="row"><img style="width:50px; height : 50px;" src="{{MEDIA_URL}}{{ maintenace.image_receipt }}" ></td>
+
+                    <td>{{ maintenace.total_amount }}</td>
+                    <td>{{ maintenace.description }}</td>
+                    <td>
+                        <a href="{% url 'maintenaceedit' maintenace.id %}">Edit</a>
+                        <a href="{% url 'maintenacedetail' maintenace.id %}">Detail</a>
+                        <a href="{% url 'maintenacedelete' maintenace.id %}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p>Page : {{page.number}} of {{page.paginator.num_pages}}</p>
+        <div class="pagination">
+            {% if page.has_previous %}
+                <a href="{% url 'carindex' %}?page={{ page.previous_page_number }}">«</a>
+            {% endif %}
+            {% for page_number in page.paginator.page_range %}
+            <a href="{% url 'carindex'%}?page={{page_number}}">{{page_number}}</a>
+            {% endfor %}
+            {% if page.has_next %}
+                <a href="{% url 'carindex' %}?page={{ page.next_page_number }}">»</a>
+            {% endif %}
+        </div>
+{% endblock %}

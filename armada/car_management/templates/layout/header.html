@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body class="d-flex flex-row gap-4">
+    <header>
+        <nav class="p-3">
+            <ul class="list-group">
+                <li class="d-inline p-1 text-start text-bg-color-secondary"><a class="text-decoration-none text-white" href="{% url 'carindex' %}"><button class="btn btn-primary w-100">Car</button></a></li>
+
+                <li class="d-inline p-1 text-start text-bg-color-secondary"><a class="text-decoration-none text-white" href="{% url 'categoryindex' %}"><button class="btn btn-primary w-100">Category</button></a></li>
+                <li class="d-inline p-1 text-start text-bg-color-secondary"><a class="text-decoration-none text-white" href="{% url 'transmissionindex' %}"><button class="btn btn-primary w-100">Transmission</button></a></li>
+                <li class="d-inline p-1 text-start text-bg-color-secondary"><a class="text-decoration-none text-white" href="{% url 'brandindex' %}"><button class="btn btn-primary w-100">Brand</button></a></li>
+                <li class="d-inline p-1 text-start text-bg-color-secondary"><a class="text-decoration-none text-white" href="{% url 'maintenanceindex' %}"><button class="btn btn-primary w-100">Maintenance</button></a></li>
+                <li class="d-inline p-1 text-start text-bg-color-secondary"><a class="text-decoration-none text-white" href="{% url 'personindex' %}"><button class="btn btn-primary w-100">Person Inc Charge</button></a></li>
+                <li class="d-inline p-1 text-start text-bg-color-secondary"><a class="text-decoration-none text-white" href="{% url 'divisionindex' %}"><button class="btn btn-primary w-100">Division</button></a></li>
+                <li class="d-inline p-1 text-start text-bg-color-secondary"><a class="text-decoration-none text-white" href="{% url 'positionindex' %}"><button class="btn btn-primary w-100">Position</button></a></li>
+                <li class="d-inline p-1 text-start text-bg-color-secondary"><a class="text-decoration-none text-white" href="{% url 'genderindex' %}"><button class="btn btn-primary w-100">Gender</button></a></li>
+                <li class="d-inline p-1 text-start text-bg-color-secondary"><a class="text-decoration-none text-white" href="{% url 'driverindex' %}"><button class="btn btn-primary w-100">Driver</button></a></li>
+                <li class="d-inline p-1 text-start text-bg-color-secondary"><a class="text-decoration-none text-white" href=""><button class="btn btn-primary w-100">Trip</button></a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="p-4 w-100">
+    {% if messages %}
+        {% for message in messages %}
+            {% if message%}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <ul class="messages">
+        </ul>
+    {% endif %}
+
+{% block "content" %}
+        #content here
+{% endblock %}
+    </section>
+</body>
+</html>

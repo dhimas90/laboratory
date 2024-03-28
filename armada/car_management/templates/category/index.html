@@ -1,0 +1,25 @@
+{% extends 'layout/header.html' %}
+
+{% block "content" %}
+<a href="{% url 'categoryadd' %}">Add Data</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    {% for data in category %}
+                <tr>
+                    <td>{{ data.category }}</td>
+                    <td>
+                        <a href="{% url 'categoryedit' data.id %}">Edit</a>
+                        <a href="{% url 'categorydetail' data.id %}">Detail</a>
+                        <a href="{% url 'categorydelete' data.id %}">Delete</a>
+                    </td>
+                </tr>
+    {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

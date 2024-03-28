@@ -1,0 +1,27 @@
+{% extends "layout/header.html" %}
+
+    {% block "content" %}
+        
+    <a href="{% url 'transmissionadd' %}">Add Data</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Transmission</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    {% for data in transmission %}
+                <tr>
+                    <td>{{ data.transmission }}</td>
+                    <td>
+                        <a href="{% url 'transmissionedit' data.id %}">Edit</a>
+                        <a href="{% url 'transmissiondetail' data.id %}">Detail</a>
+                        <a href="{% url 'transmissiondelete' data.id %}">Delete</a>
+                    </td>
+                </tr>
+    {% endfor %}
+            </tbody>
+        </table>
+
+    {% endblock %}

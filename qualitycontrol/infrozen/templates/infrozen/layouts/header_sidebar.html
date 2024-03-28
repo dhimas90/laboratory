@@ -1,0 +1,119 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% tailwind_css %}
+    <!-- <style>
+        * {
+            border: 1px solid red;
+        }
+    </style> -->
+</head>
+<body>
+    <div id="container" class="flex flex-row h-lvh">
+
+        <!-- sidebar -->
+        <!-- sidebar logo -->
+        <div class="sticky overflow-auto section basis-1/4 shadow-md p-4 bg-stone-950 overflow-auto scrollbar scrollbar-thumb-gray-900 scrollbar-track-gray-100 s:hidden">
+            <div id="logo" class="flex flex-row items-center justify-center py-7">
+                <!-- <span><img src="{% file 'img/chemical-svgrepo-com.svg' %}" alt="" class="object-scale-down h-20 w-20"></span> -->
+                <span><h4 class="text-slate-100 font-bold">QUALITY CONTROL</h4></span>
+            </div>
+            <hr class="h-px w-56 my-4 bg-gray-200 border-0">
+
+            <ul class="report-button">
+                <li class="block text-zinc-200 hover:text-stone-100 m-1 p-1 text-sm">
+                    <a href="" class="flex items-center gap-2 justify-between">
+                        <span class="font-bold">Report</span>
+                        <!-- <span><img src="{% file 'img/down-square-svgrepo-com.svg' %}" alt="" class="w-4  h-4 items-center"></span> -->
+                    </a>
+                </li>
+                <!-- list menu -->
+                <div id="list-menu">
+                    <li class="block text-zinc-500 hover:text-stone-100 m-1 p-1 text-sm">
+                        <a href="" class="flex items-center gap-2">
+                            <span><img src="{% static 'img/printer-svgrepo-com.svg' %}" alt="" class="object-scale-down w-7 h-7"></span>
+                            <span>Data Material</span>
+                        </a>
+                    </li>
+                    <li class="block text-zinc-500 hover:text-stone-100 m-1 p-1 text-sm">
+                        <a href="" class="flex items-center gap-2">
+                            <span><img src="{% static 'img/printer-svgrepo-com.svg' %}" alt="" class="object-scale-down w-7 h-7"></span>
+                            <span>Analysis Report</span>
+                        </a>
+                    </li>
+                    <li class="block text-zinc-500 hover:text-stone-100 m-1 p-1 text-sm">
+                        <a href="" class="flex items-center gap-2">
+                            <span><img src="{% static 'img/printer-svgrepo-com.svg' %}" alt="" class="object-scale-down w-7 h-7"></span>
+                            <span>Report Chemical</span>
+                        </a>
+                    </li>
+                    <li class="block text-zinc-500 hover:text-stone-100 m-1 p-1 text-sm">
+                        <a href="" class="flex items-center gap-2">
+                            <span><img src="{% static 'img/printer-svgrepo-com.svg' %}" alt="" class="object-scale-down w-7 h-7"></span>
+                            <span>Tools and Inventory</span>
+                        </a>
+                    </li>
+                </div>
+
+            </ul>
+            <hr class="h-px w-56 my-4">
+
+            <ul class="report-button" x-show = "dropdownOpen" >
+                <li class="block text-zinc-200 hover:text-stone-100 m-1 p-1 text-sm">
+                    <a href="" class="flex items-center gap-2 justify-between">
+                        <span class="font-bold">Master Data</span>
+                        <!-- <span><img src="{% file 'img/down-square-svgrepo-com.svg' %}" alt="" class="w-4  h-4 items-center"></span> -->
+                    </a>
+                </li>
+                <!-- list menu -->
+                <div id="list-menu">
+                    <li class="block text-zinc-500 hover:text-stone-100 m-1 p-1 text-sm">
+                        <a href="" class="flex items-center gap-2">
+                            <span><img src="{% static 'img/printer-svgrepo-com.svg' %}" alt="" class="object-scale-down w-7 h-7"></span>
+                            <span>Material</span>
+                        </a>
+                    </li>
+                    <li class="block text-zinc-500 hover:text-stone-100 m-1 p-1 text-sm">
+                        <a href="" class="flex items-center gap-2">
+                            <span><img src="{% static 'img/printer-svgrepo-com.svg' %}" alt="" class="object-scale-down w-7 h-7"></span>
+                            <span>Tools</span>
+                        </a>
+                    </li>
+                    <li class="block text-zinc-500 hover:text-stone-100 m-1 p-1 text-sm">
+                        <a href="" class="flex items-center gap-2">
+                            <span><img src="{% static 'img/printer-svgrepo-com.svg' %}" alt="" class="object-scale-down w-7 h-7"></span>
+                            <span>Inventory</span>
+                        </a>
+                    </li>
+                    <li class="block text-zinc-500 hover:text-stone-100 m-1 p-1 text-sm">
+                        <a href="" class="flex items-center gap-2">
+                            <span><img src="{% static 'img/printer-svgrepo-com.svg' %}" alt="" class="object-scale-down w-7 h-7"></span>
+                            <span>Master Analyzer</span>
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+
+        <!-- header -->
+        <div style="border: red solid 1px;" id="header" class="w-full">
+            <header class="flex flex-row justify-between py-7 px-5">
+                <div id="breadcrumb">
+                    <a href="">Where></a>
+                    <a href="">to Where></a>
+                </div>
+                <div id="user">
+                    <span><img src="{% static 'img/bulb-2-svgrepo-com.svg' %}" class="w-6 h-6" alt=""></span>
+                    <span></span>
+                </div>
+            </header>
+
+  {% block "content" %}
+
+  {% endblock %}
+</body>
+</html>

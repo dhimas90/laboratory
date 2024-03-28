@@ -1,0 +1,44 @@
+{% extends "layout/header.html" %}
+
+    {% block "content" %}
+
+    {% load static %}
+
+    <a class="btn btn-success" href="{% url 'personadd' %}">Add Data</a>
+        <table class="table-sm p-2 w-100 mt-2 border rounded">
+            <caption>Person In Charge Tables</caption>
+            <thead class="p-3">
+                    <th scope="col">Name</th>
+                    <th scope="col">Birth</th>
+                    <th scope="col">Identity Number</th>
+                    <th scope="col">Image Identity Number</th>
+                    <th scope="col">Division</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    {% for msg in message %}
+        <p>{{msg}}</p>
+    {% endfor %}
+    {% for data in person %}
+
+                <tr>
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.birth }}</td>
+                    <td>{{ data.identity_number }}</td>
+                    <td><img style="width:50px" src="{{MEDIA_URL}}{{ data.image_identity_number }}"></td>
+                    <td>{{ data.division }}</td>
+
+                    <td>{{ data.position }}</td>
+                    <td>
+                        <a href="{% url 'personedit' data.id %}">Edit</a>
+                        <a href="{% url 'persondetail' data.id %}">Detail</a>
+                        <a href="{% url 'persondelete' data.id %}">Delete</a>
+                    </td>
+                </tr>
+    {% endfor %}
+            </tbody>
+        </table>
+
+    {% endblock %}

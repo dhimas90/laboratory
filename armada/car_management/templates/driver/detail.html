@@ -1,0 +1,13 @@
+{% extends 'layout/header.html' %}
+    {% block "content" %}
+    <button><a href="{% url 'driverindex'%}">Back</a></button>
+        <h5>Detail</h5>
+            <p>{{ data.name }}</p>
+            <p><img style="width:100px" src="{{MEDIA_URL}}{{data.image_identity_number}}"></p>
+            <p><img style="width:100px" src="{{MEDIA_URL}}{{data.image_driving_lisence}}"></p>
+            <p>{{data.birth}}</p>
+            <p>{{data.identity_number}}</p>
+            <p>{{data.gender}}</p>
+            <p>{{data.created_at}}</p>
+            <p>{{data.updated_at}}</p>
+    {% endblock %}
